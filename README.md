@@ -1,10 +1,13 @@
-# Diabetic Retinopathy Severity Classification
+# 🩺 Diabetic Retinopathy Severity Classification
 
-![Deep Learning for Medical Imaging](https://via.placeholder.com/800x200?text=Diabetic+Retinopathy+Classification)
+![Diabetic Retinopathy](https://via.placeholder.com/800x200?text=Diabetic+Retinopathy+Classification)
 
-A deep learning project that classifies retinal fundus images into 5 severity levels of diabetic retinopathy using ResNet50 and Vision Transformers (ViT), with model interpretability via Grad-CAM.
+A deep learning project to classify retinal fundus images into 5 severity levels of diabetic retinopathy using **ResNet50** and **Vision Transformers (ViT)**, with interpretability through **Grad-CAM** visualizations.
 
-## Table of Contents
+---
+
+## 📁 Table of Contents
+
 - [Dataset](#dataset)
 - [Project Structure](#project-structure)
 - [Installation](#installation)
@@ -15,106 +18,68 @@ A deep learning project that classifies retinal fundus images into 5 severity le
 - [References](#references)
 - [License](#license)
 
-## Dataset
+---
 
-The dataset contains retinal fundus images classified into 5 categories:
+## 📊 Dataset
 
-| Severity Level | Label | Number of Images |
-|----------------|-------|------------------|
-| No DR          | 0     | XXXX             |
-| Mild           | 1     | XXXX             |
-| Moderate       | 2     | XXXX             |
-| Severe         | 3     | XXXX             |
-| Proliferate DR | 4     | XXXX             |
+The dataset contains colored retinal fundus images categorized into five severity levels:
 
-File structure:
-data/
-├── train.csv
-└── colored_images/
-├── No_DR/
-├── Mild/
-├── Moderate/
-├── Severe/
-└── Proliferate_DR/
+| Severity Level   | Label | Number of Images |
+|------------------|-------|------------------|
+| No DR            | 0     | XXXX             |
+| Mild             | 1     | XXXX             |
+| Moderate         | 2     | XXXX             |
+| Severe           | 3     | XXXX             |
+| Proliferative DR | 4     | XXXX             |
 
-Installation
+⭐ Key Features
 
-Make sure you have Python 3.7+ installed.
+    Custom Dataset Loader from train.csv and folder structure
 
-Install required packages:
+    Models:
 
-pip install torch torchvision transformers timm pytorch-grad-cam matplotlib pandas
+        ResNet50 (ImageNet pretrained, 5-class head)
 
-Usage
+        Vision Transformer (HuggingFace ViT, fine-tuned)
 
-Place your dataset folder data in the project root as described above.
+    Training:
 
-Run the training and evaluation script:
+        Cross-entropy loss
 
-python diabetic_retinopathy_classification.py
+        Adam optimizer
 
-The script will:
+        Basic augmentations (e.g., horizontal flip)
 
-Load the dataset with proper transformations
+    Evaluation:
 
-Train ResNet50 and ViT models for diabetic retinopathy classification
+        Accuracy computation
 
-Print training loss and accuracy per epoch
+        Grad-CAM for explainability
 
-Evaluate and compare accuracy of both models
+📈 Results
 
-Visualize Grad-CAM heatmaps for sample images from both models for interpretability
+    Training loss and accuracy per epoch
 
-Key Components
+    Final model evaluation on dataset
 
-Custom Dataset: Loads images based on train.csv and matches labels to folder structure.
+    Grad-CAM visualizations showing regions influencing model predictions
 
-Models:
+🔮 Future Work
 
-ResNet50 (pretrained on ImageNet) with final layer adjusted for 5 classes.
+    Add validation/test split
 
-Vision Transformer (ViT) from HuggingFace Transformers, fine-tuned for classification.
+    Tune hyperparameters for better performance
 
-Training:
+    Integrate other interpretability tools beyond Grad-CAM
 
-Cross-entropy loss
+    Deploy the model for clinical decision support
 
-Adam optimizer
+📚 References
 
-Basic data augmentations like random horizontal flip
+    PyTorch
 
-Evaluation:
+    HuggingFace Transformers – ViT
 
-Accuracy calculated on the training set (can be extended to validation/test set)
+    Grad-CAM Paper
 
-Interpretability:
-
-Grad-CAM applied to visualize important regions in the images influencing model decisions.
-
-Results
-
-You will get printed outputs of training progress, accuracy scores, and Grad-CAM visualizations for both models.
-
-Future Work
-
-Add proper train/validation split for better generalization.
-
-Hyperparameter tuning for improved performance.
-
-Extend interpretability methods beyond Grad-CAM.
-
-Deploy model for clinical decision support.
-
-References
-
-PyTorch (https://pytorch.org/)
-
-HuggingFace Transformers - ViT (https://huggingface.co/docs/transformers/model_doc/vit)
-
-Grad-CAM (https://arxiv.org/abs/1610.02391)
-
-Diabetic Retinopathy Detection (https://www.kaggle.com/c/diabetic-retinopathy-detection)
-
-Author
-
-Your Name
+    Kaggle: Diabetic Retinopathy Detection
